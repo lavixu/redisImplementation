@@ -20,6 +20,7 @@ public class TelnetServer {
 	
 	public TelnetServer() throws IOException {
 		serverSocket = new ServerSocket(PORT);
+		serverSocket.setSoTimeout(15*60*1000); //timeout at 15 minutes
 	}
 
 	public void run() throws IOException {
