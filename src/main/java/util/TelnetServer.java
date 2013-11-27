@@ -15,15 +15,14 @@ import main.java.util.helper.CommandParser;
 
 
 public class TelnetServer {
-	private final Logger LOGGER = Logger
-			.getLogger(TelnetServer.class.getName());
+	private final Logger LOGGER = Logger.getLogger(TelnetServer.class.getName());
 	private final int PORT = 15000;
 	private static CommandParser commandParser = new CommandParser();
 	private static ServerSocket serverSocket = null;
 
 	public TelnetServer() throws IOException {
 		serverSocket = new ServerSocket(PORT);
-		serverSocket.setSoTimeout(30 * 60 * 1000); // timeout at 15 minutes
+		serverSocket.setSoTimeout(30 * 60 * 1000); // timeout at 30 minutes
 	}
 
 	public void run() throws IOException {
@@ -33,8 +32,7 @@ public class TelnetServer {
 				server = serverSocket.accept();
 				final BufferedReader reader = new BufferedReader(
 						new InputStreamReader(server.getInputStream()));
-				final PrintWriter out = new PrintWriter(
-						server.getOutputStream(), true);
+				final PrintWriter out = new PrintWriter(server.getOutputStream(), true);
 				boolean cancel = false;
 				while (!cancel) {
 
@@ -47,7 +45,6 @@ public class TelnetServer {
 					String result = commandParser.parseCommand(command);
 					LOGGER.info(command);
 					out.println(result);
-					command = reader.readLine();
 				}
 			} catch (EOFException ignore) {
 				LOGGER.info("Client terminated.");

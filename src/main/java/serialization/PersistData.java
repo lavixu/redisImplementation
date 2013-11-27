@@ -4,12 +4,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.logging.Logger;
 
 import main.java.impl.stringImpl.*;
+import main.java.impl.zSetImpl.SortedKeyValue;
 import main.java.impl.bitImpl.*;
 
 public class PersistData {
 	
+	public static Logger logger = Logger.getLogger(PersistData.class.getName());
 	/* The order of implementation is
 	 * String hashmap, expiryTimestamp hashMap, Bitset and then TreeSet
 	 * 
@@ -22,7 +25,7 @@ public class PersistData {
 			out.writeObject(data);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.severe(e.getMessage());
 		}
 		
 		
@@ -41,11 +44,12 @@ public class PersistData {
 				BitKeyValue.setKeyValueBit(data.getBitKeyValue());
 				StringKeyValue.setTimeoutKeys(data.getTimeoutKeys());
 				StringKeyValue.purgeExpiredKeys();
+				SortedKeyValue.setzMemberMap(data.getSortedSetKeyVal());
 			}
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();//TODO change them to logger statements.
+			logger.severe(e.getMessage());
 		}
 		return true;
 	}
