@@ -24,7 +24,6 @@ public class PersistData {
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);){
 			out.writeObject(data);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			logger.severe(e.getMessage());
 		}
 		

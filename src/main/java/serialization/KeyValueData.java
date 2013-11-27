@@ -13,9 +13,6 @@ import main.java.impl.bitImpl.*;
 
 public class KeyValueData implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public HashMap<String, String> stringKeyValue = StringKeyValue.getKeyValueStr();
 	public HashMap<String, Long> timeoutKeys = StringKeyValue.getTimeoutKeys();
