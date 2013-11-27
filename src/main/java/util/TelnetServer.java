@@ -35,7 +35,14 @@ public class TelnetServer {
 				final PrintWriter out = new PrintWriter(server.getOutputStream(), true);
 				boolean cancel = false;
 				while (!cancel) {
-
+					char c = (char)reader.read();
+					int hv = Character.digit(c,16);
+					if(hv == -1)
+					{
+						//telnet has passed a ctrl-c signal, terminate the client.
+						cancel = true;
+						break;
+					}
 					String command = reader.readLine();
 					if (command == null || command.equalsIgnoreCase("exit")) {
 						cancel = true;
@@ -46,12 +53,13 @@ public class TelnetServer {
 					logger.info(command);
 					out.println(result);
 				}
-			} catch (EOFException ignore) {
+			} 
+			catch (EOFException ignore) {
 				logger.info("Client terminated.");
-			} catch (IOException e) {
+			} 
+			catch (IOException e) {
 				logger.severe(e.getMessage());
 			}
-
 			finally {
 				PersistData.save();
 				server.close();
