@@ -2,6 +2,7 @@ package util;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -37,12 +38,16 @@ public class TelnetServer {
 				}
 
 			} 
+			catch(EOFException ignore)
+			{
+				LOGGER.info("Client terminated.");
+			}
 			catch (IOException e) {
 				LOGGER.severe(e.getMessage());
 			}
+			
 			finally {
 				PersistData.save();
-				server.close();
 			}
 		}
 	}
