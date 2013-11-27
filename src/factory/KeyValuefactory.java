@@ -1,6 +1,7 @@
 package factory;
 
 import stringImpl.StringKeyValue;
+import zset.SortedKeyValue;
 import bitImpl.BitKeyValue;
 
 
@@ -8,6 +9,7 @@ public class KeyValuefactory {
 	
 	private static StringKeyValue strKeyValue = null;
 	private static BitKeyValue bitKeyValue = null;
+	private static SortedKeyValue sortedKeyVal = null;
 	
 	public static StringKeyValue getStringKeyValueInstance()
 	{
@@ -28,6 +30,15 @@ public class KeyValuefactory {
 		return bitKeyValue;
 	}
 	
+	public static SortedKeyValue getSortedKeyValInstance()
+	{
+		if(sortedKeyVal == null)
+		{
+			sortedKeyVal = new SortedKeyValue();
+		}
+		return sortedKeyVal;
+		
+	}
 	
 
 }

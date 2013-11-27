@@ -36,9 +36,10 @@ public class BitKeyValue {
 		return keyValueBit.get(key);
 	}
 	
-	public void set(String key, int index, Boolean flag)
+	public int set(String key, int index, Boolean flag)
 	{
 		ArrayList<Integer> value = get(key);
+		int prevValue = 0;
 		// Storing the bits as array of integers each with 32 bits.
 		int arrIndex = index / 32;
 		int bitindex = 32 - index % 32;
@@ -68,11 +69,13 @@ public class BitKeyValue {
 			else
 			{
 				int currentVal = value.get(arrIndex);
-				currentVal = flag ?  currentVal| 1 << bitindex :  currentVal & ~(1<< bitindex);
+				prevValue =  ((currentVal & 1 << bitindex) != 0) ? 1 : 0;
+				currentVal = flag ?  (currentVal | 1 << bitindex) :  currentVal & ~(1<< bitindex);
 				value.set(arrIndex, currentVal);
 			}
 		}
 		keyValueBit.put(key,  value);
+		return prevValue;
 	}
 	
 	//Explicitly adding 0's to all the newly added capacity to avoid null pointers.
