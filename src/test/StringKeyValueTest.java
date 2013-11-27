@@ -3,7 +3,7 @@ package test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import stringImpl.StringKeyValue;
+import main.java.impl.stringImpl.*;
 
 public class StringKeyValueTest {
 	

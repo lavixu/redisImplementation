@@ -1,5 +1,7 @@
 package test;
 
+import main.java.impl.zSetImpl.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -7,8 +9,7 @@ import java.util.TreeSet;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import zset.MemberScore;
-import zset.SortedKeyValue;
+
 
 public class SortedKeyValueTest {
 	

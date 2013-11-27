@@ -2,7 +2,7 @@ package test;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import bitImpl.BitKeyValue;
+import main.java.impl.bitImpl.*;
 
 public class BitKeyValueTest {
 	
