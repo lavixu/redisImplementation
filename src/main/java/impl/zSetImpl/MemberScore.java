@@ -1,8 +1,9 @@
 package main.java.impl.zSetImpl;
 
-public class MemberScore {
-	
-	
+import java.io.Serializable;
+
+public class MemberScore implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public Integer score;
 	public String member;
 	

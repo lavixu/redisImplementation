@@ -15,7 +15,7 @@ import main.java.util.helper.CommandParser;
 
 
 public class TelnetServer {
-	private final Logger LOGGER = Logger.getLogger(TelnetServer.class.getName());
+	private final Logger logger = Logger.getLogger(TelnetServer.class.getName());
 	private final int PORT = 15000;
 	private static CommandParser commandParser = new CommandParser();
 	private static ServerSocket serverSocket = null;
@@ -43,13 +43,13 @@ public class TelnetServer {
 					}
 
 					String result = commandParser.parseCommand(command);
-					LOGGER.info(command);
+					logger.info(command);
 					out.println(result);
 				}
 			} catch (EOFException ignore) {
-				LOGGER.info("Client terminated.");
+				logger.info("Client terminated.");
 			} catch (IOException e) {
-				LOGGER.severe(e.getMessage());
+				logger.severe(e.getMessage());
 			}
 
 			finally {

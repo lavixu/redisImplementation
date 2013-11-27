@@ -1,12 +1,17 @@
 package main.java.impl.zSetImpl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
-public class SortedKeyValue {
+public class SortedKeyValue implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/*
 	 * Two maps, one to store key => member => score memory. This will be used
 	 * to delete a member from already existing 
