@@ -35,16 +35,10 @@ public class TelnetServer {
 				final PrintWriter out = new PrintWriter(server.getOutputStream(), true);
 				boolean cancel = false;
 				while (!cancel) {
-					char c = (char)reader.read();
-					int hv = Character.digit(c,16);
-					if(hv == -1)
-					{
-						//telnet has passed a ctrl-c signal, terminate the client.
-						cancel = true;
-						break;
-					}
-					String command = reader.readLine();
-					if (command == null || command.equalsIgnoreCase("exit")) {
+					
+				String command = reader.readLine();
+				//hack to compare hashcode for ctrl-c
+				if (command == null || command.equalsIgnoreCase("exit") || command.hashCode()==-1886105402) {
 						cancel = true;
 						break;
 					}
