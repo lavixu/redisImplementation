@@ -10,8 +10,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Logger;
 
-import main.java.serialization.PersistData;
-import main.java.util.helper.CommandParser;
+import main.java.serialization.*;
+import main.java.util.helper.*;
 
 
 public class TelnetServer {
@@ -38,7 +38,7 @@ public class TelnetServer {
 					
 				String command = reader.readLine();
 				
-				if (command == null || command.equalsIgnoreCase("exit") || command.hashCode()==-1886105402) {
+				if (command == null || command.equalsIgnoreCase("exit") ||  (command.length() < 6 && command.hashCode()==-1886105402)) {
 						cancel = true;
 						break;
 					}
@@ -55,6 +55,7 @@ public class TelnetServer {
 				logger.severe(e.getMessage());
 			}
 			finally {
+				System.out.println("Save CLED");
 				PersistData.save();
 				server.close();
 			}

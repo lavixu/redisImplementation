@@ -9,10 +9,13 @@ ExoRedis implements the get, set, zadd, zrange, zcount, zcard, save, setbit, get
 Start The Server
 ================================
 At root dir:
+
 To compile:
+       
         ant clean compile run
 
 To launch the server:
+
         File path is the complete path of the file.
         This is the path where the data is dumped on exit and loaded on bootup.
         ant run -Darg0=<file_path> 
