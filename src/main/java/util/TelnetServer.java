@@ -55,7 +55,7 @@ public class TelnetServer {
 				logger.severe(e.getMessage());
 			}
 			finally {
-				System.out.println("Save CLED");
+				logger.info("Save data called");
 				PersistData.save();
 				server.close();
 			}
