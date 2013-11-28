@@ -1,0 +1,27 @@
+<project>
+
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+
+	<target name="compile">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src/main" destdir="build/classes" />
+	</target>
+
+	<target name="jar">
+		<mkdir dir="build/jar" />
+		<jar destfile="build/jar/ServerLauncher.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="main.java.util.ServerLauncher" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run">
+		<java jar="build/jar/ServerLauncher.jar" fork="true">
+			<arg value="${arg0}" />
+		</java>
+	</target>
+
+</project>

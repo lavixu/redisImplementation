@@ -1,0 +1,9 @@
+bin/*
+build/*
+test-output/*
+.settings/
+.loadpath
+*.swp
+*.tmp
+.buildpath
+
