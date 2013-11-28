@@ -37,7 +37,7 @@ public class TelnetServer {
 				while (!cancel) {
 					
 				String command = reader.readLine();
-				//hack to compare hashcode for ctrl-c
+				
 				if (command == null || command.equalsIgnoreCase("exit") || command.hashCode()==-1886105402) {
 						cancel = true;
 						break;
