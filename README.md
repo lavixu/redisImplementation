@@ -16,13 +16,13 @@ To compile:
 
 To launch the server:
 
-        File path is the complete path of the file.
-        This is the path where the data is dumped on exit and loaded on bootup.
+        //File path is the complete path of the file.
+        //This is the path where the data is dumped on exit and loaded on bootup.
         ant run -Darg0=<file_path> 
 
 To launch client:
-       The server is configured to listen for request at 15000 ( not modifiable ).
-       telnet host 15000       
+        //The server is configured to listen for request at 15000 ( not modifiable ).
+        telnet host 15000       
  
 To terminate client use ctrl-c or exit.
 
