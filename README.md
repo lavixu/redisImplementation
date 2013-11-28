@@ -27,7 +27,7 @@ To launch client:
  
 To terminate client use ctrl-c or exit.
 
-The response is as per redis protocol as mentioned [here](http://redis.io/topics/protocol)
+The response is as per redis protocol as mentioned [here](http://redis.io/topics/protocol).
 
 ===============
 Examples:
