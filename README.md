@@ -21,6 +21,7 @@ To launch the server:
         ant run -Darg0=<file_path> 
 
 To launch client:
+
         //The server is configured to listen for request at 15000 ( not modifiable ).
         telnet host 15000       
  
